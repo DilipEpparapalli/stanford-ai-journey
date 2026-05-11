@@ -1,12 +1,12 @@
 # Stanford AI Journey 🧠
 
-> *Learning how AI works, from scratch, in public.*
+> _Learning how AI works, from scratch, in public._
 
 ---
 
 ## Why I'm doing this
 
-We live in a world being shaped by AI  every day, in ways most people don't fully understand.
+We live in a world being shaped by AI every day, in ways most people don't fully understand.
 
 I want to change that for myself.
 
@@ -31,7 +31,7 @@ The process for every lecture:
 5. **Write the notes** — in plain English, the way I understood it
 6. **Repeat** for the next lecture
 
-This isn't passive learning. Every note in this repo represents something I can actually explain not just something I watched or copied.
+This isn't passive learning. Every note in this repo represents something I can actually explain — not just something I watched or copied.
 
 ---
 
@@ -52,8 +52,7 @@ You'll find:
 
 ## The learning path
 
-**Phase 1 — CS221: Artificial Intelligence Principles**
-How AI thinks, reasons, searches, and makes decisions.
+**Phase 1 — CS221: Artificial Intelligence Principles** How AI thinks, reasons, searches, and makes decisions.
 
 This is a long journey. I'm not racing through it. I'm understanding it.
 
@@ -63,11 +62,11 @@ This is a long journey. I'm not racing through it. I'm understanding it.
 
 Everything I'm studying is freely available. If you want to follow the same path:
 
-| Resource | Link |
+|Resource|Link|
 |---|---|
-| 📺 CS221 Lecture Videos (YouTube) | [Watch the playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN) |
-| 📑 Lecture Slides & Notes | [autumn2025-lectures](https://github.com/stanford-cs221/autumn2025-lectures) |
-| 🏫 Stanford CS221 GitHub | [stanford-cs221](https://github.com/stanford-cs221) |
+|📺 CS221 Lecture Videos (YouTube)|[Watch the playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rMeDqwS1yFl3j3sR_-MQNEN)|
+|📑 Lecture Slides & Notes|[autumn2025-lectures](https://github.com/stanford-cs221/autumn2025-lectures)|
+|🏫 Stanford CS221 GitHub|[stanford-cs221](https://github.com/stanford-cs221)|
 
 All lectures, slides, and materials are provided free by Stanford University. I'm deeply grateful for that.
 
@@ -85,10 +84,39 @@ If you're on a similar journey, feel free to follow along, open an issue, or jus
 
 ## Current progress
 
-| Course | Lecture | Topic | Status |
+|Course|Lecture|Topic|Status|
 |---|---|---|---|
-| CS221 | Lecture 1 | What is AI? History, Search, Tensors | ✅ Done |
-| CS221 | Lecture 2 | Coming soon... | 🔜 |
+|CS221|Lecture 1|What is AI? History, Search, Tensors|✅ Done|
+|CS221|Lecture 2|Tensors, Einsum, Gradients & Backpropagation|✅ Done|
+|CS221|Lecture 3|Linear Regression|🔜 Next|
+
+---
+
+## What I've learned so far
+
+### Lecture 1 — What is AI?
+
+The foundations: what AI is, a brief history, and the first building block — tensors.
+
+### Lecture 2 — Tensors, Einsum, Gradients & Backpropagation
+
+This lecture covered the **engine that powers all of modern AI.**
+
+**Tensors** are the data format everything in AI is stored in — data, parameters, mistakes, all of it. Every tensor has an _order_ (how many dimensions) and _axes_ (directions you can move through it). A list is order 1. A grid is order 2. A cube is order 3.
+
+**Einsum** is one master operation that replaces many: sum, dot product, matrix multiplication, transpose, outer product — all expressed through a single string that maps input axes to output axes. If an axis appears in the input but not the output, it gets summed away and collapsed. One rule explains everything.
+
+**Gradients** answer one question: _if I change this input a tiny bit, how much does the output change — and in which direction?_ The gradient points uphill. To reduce loss, you go the opposite direction. The partial derivative measures the effect of changing one input at a time. The gradient bundles all partial derivatives together into the same shape as the input.
+
+**Forward pass** computes values from input to output, step by step through a computation graph. **Backward pass** goes in reverse — assigning blame to each node using the chain rule. Blame = how much changing that node's value would affect the final output.
+
+**The chain rule** is the secret ingredient: if A affects B and B affects C, multiply (how much A affects B) by (how much B affects C) to get how much A affects C. Backpropagation is just this rule applied automatically across every node in the graph.
+
+**Gradient descent** uses the blame values to nudge weights in the opposite direction of the gradient, by a small amount called the learning rate. Repeat thousands of times and the loss keeps falling — the AI keeps getting better.
+
+**The learning rate trade-off:** too small and training takes forever; too large and the weights overshoot the minimum, bounce around, and the loss can explode instead of falling.
+
+This is the exact same algorithm — chain rule, forward pass, backward pass, gradient descent — that trains ChatGPT, image recognition models, and every other modern AI system. Just with billions of parameters instead of two.
 
 ---
 
@@ -104,4 +132,4 @@ Understanding one thing deeply is worth more than skimming ten things.
 
 ---
 
-*Started: May 2026 | Course: Stanford CS221 → CS229 | Background: Complete beginner*# stanford-ai-journey
+_Started: May 2026 | Course: Stanford CS221 → CS229 | Background: Complete beginner_
